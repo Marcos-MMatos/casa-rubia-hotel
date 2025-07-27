@@ -1,0 +1,572 @@
+/*
+ * Style sheet for the Taganga hotel website.
+ *
+ * This file defines a light and airy aesthetic inspired by the
+ * Caribbean waters of Taganga. We employ a palette of deep blues,
+ * turquoise accents and sandy beiges to evoke the seaside
+ * atmosphere. The layout is responsive and adapts gracefully to
+ * mobile devices using flexbox and media queries. Typography is
+ * handled with the Montserrat and Open Sans fonts to provide a
+ * clean, modern feel.
+ */
+
+/* Root colour variables make it easy to tweak the look and feel. */
+:root {
+  /*
+   * Colour palette inspired by the Casa Rubia logo.
+   * We choose a rich red reminiscent of the "Rubia" lettering,
+   * a deep blue drawn from the stylised wave, and a warm
+   * golden tone reflecting the sun in the logo. These colours
+   * unify the brand across the site and create a welcoming yet
+   * vibrant atmosphere.
+   */
+  --primary-color: #c62828;     /* logo red for headers and accents */
+  --secondary-color: #0d47a1;   /* deep blue for buttons and highlights */
+  --accent-color: #f6b93b;      /* golden yellow for subtle accents */
+  --light-color: #FAF7F2;       /* soft beige background */
+  --dark-color: #2B303A;        /* dark charcoal for text */
+  --max-width: 1200px;
+}
+
+/* Global styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  color: var(--dark-color);
+  background-color: var(--light-color);
+  line-height: 1.6;
+}
+
+a {
+  color: var(--secondary-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+header {
+  background-color: var(--primary-color);
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Navigation bar */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0.5rem 1rem;
+}
+
+.navbar-logo {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.navbar-menu {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navbar-menu a {
+  color: #fff;
+  font-weight: 600;
+  transition: color 0.2s ease-in-out;
+}
+
+.navbar-menu a:hover {
+  color: var(--accent-color);
+}
+
+/* Hero section */
+.hero {
+  position: relative;
+  height: 60vh;
+  min-height: 400px;
+  /* Use a custom hero image of the Casa Rubia facade. */
+  background: url('images/casa_rubia_hero.jpg') no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+}
+
+/* Overlay for darkening the hero image */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+}
+
+.hero h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.btn-primary {
+  display: inline-block;
+  background-color: var(--secondary-color);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-color);
+  color: var(--dark-color);
+}
+
+/* Section styling */
+section {
+  padding: 4rem 1rem;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+}
+
+/* About section */
+.about {
+  background-color: #fff;
+}
+
+.about-content {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+}
+
+.about-text {
+  flex: 1 1 300px;
+}
+
+.about-text p {
+  margin-bottom: 1rem;
+}
+
+.about-image {
+  flex: 1 1 300px;
+  text-align: center;
+}
+
+.about-image img {
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Rooms overview cards */
+.rooms-overview {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.room-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.room-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.room-card-body {
+  padding: 1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.room-card-body h3 {
+  margin-top: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.room-card-body p {
+  flex-grow: 1;
+  margin-bottom: 1rem;
+}
+
+.room-card-body .price {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.room-card-body .btn-secondary {
+  align-self: flex-start;
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.room-card-body .btn-secondary:hover {
+  background-color: var(--secondary-color);
+}
+
+/* Amenities list */
+.amenities {
+  background-color: var(--light-color);
+}
+
+.amenities-list {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.amenity-item {
+  flex: 1 1 200px;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.amenity-item i {
+  font-size: 2rem;
+  color: var(--secondary-color);
+  margin-bottom: 0.5rem;
+}
+
+.amenity-item h4 {
+  margin-top: 0.5rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+}
+
+/* Location section */
+.location {
+  background-color: #fff;
+}
+
+.location-content {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.location-content p {
+  margin-bottom: 1rem;
+}
+
+.location-link {
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--primary-color);
+  font-weight: 600;
+  border-bottom: 2px solid var(--secondary-color);
+  padding-bottom: 2px;
+}
+
+.location-link:hover {
+  color: var(--secondary-color);
+  border-bottom-color: var(--primary-color);
+}
+
+/* Footer */
+footer {
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+footer .footer-content {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: space-between;
+}
+
+footer .footer-section {
+  flex: 1 1 200px;
+  min-width: 200px;
+}
+
+footer h4 {
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 0.5rem;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+footer li {
+  margin-bottom: 0.5rem;
+}
+
+footer a {
+  color: var(--accent-color);
+  transition: color 0.2s ease;
+}
+
+footer a:hover {
+  color: #fff;
+}
+
+footer .social-icons {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+footer .social-icons a {
+  font-size: 1.5rem;
+  color: #fff;
+  transition: color 0.2s ease;
+}
+
+footer .social-icons a:hover {
+  color: var(--accent-color);
+}
+
+/* Rooms page table */
+.rooms-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+}
+
+.rooms-table th,
+.rooms-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.rooms-table th {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.rooms-table tr:nth-child(even) {
+  background-color: #f7f7f7;
+}
+
+.availability {
+  font-weight: 700;
+}
+
+.available {
+  color: #2e7d32; /* green */
+}
+
+.unavailable {
+  color: #c62828; /* red */
+}
+
+/* Reservation modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.modal-content h3 {
+  margin-top: 0;
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 1rem;
+}
+
+.modal-content label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+
+.modal-content input,
+.modal-content select {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.modal-content button {
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.modal-content .btn-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.modal-content .btn-submit {
+  background-color: var(--primary-color);
+  color: #fff;
+  margin-right: 0.5rem;
+}
+
+.modal-content .btn-submit:hover {
+  background-color: var(--secondary-color);
+}
+
+.modal-content .btn-cancel {
+  background-color: #ccc;
+  color: #333;
+}
+
+.modal-content .btn-cancel:hover {
+  background-color: #bbb;
+}
+
+/* Contact form */
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.contact-form button {
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: var(--secondary-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .navbar-menu {
+    display: none; /* hide nav links on small screens for simplicity */
+  }
+  header {
+    text-align: center;
+  }
+  .navbar-logo {
+    flex: 1;
+  }
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .room-card img {
+    height: 150px;
+  }
+  .rooms-table th, .rooms-table td {
+    padding: 0.5rem;
+  }
+}

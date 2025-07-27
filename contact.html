@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto – Casa Rubia</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-VoBafk3xtQpFx9y4SULaPnKWPGtCtLS4ol6st2MUgSlww7gfGL4JyC7oHEI6CVJIq+57etZ5Cs2hcNUAzqX6cA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="navbar-logo">Casa Rubia</div>
+      <div class="navbar-menu">
+        <a href="index.html">Inicio</a>
+        <a href="index.html#sobre-nosotros">Sobre nosotros</a>
+        <a href="rooms.html">Habitaciones</a>
+        <a href="contact.html" class="active">Contacto</a>
+      </div>
+    </nav>
+  </header>
+
+  <section>
+    <h2 class="section-title">Contacto</h2>
+    <div style="max-width: var(--max-width); margin: 0 auto; display: flex; flex-wrap: wrap; gap: 2rem;">
+      <div style="flex: 1 1 300px;">
+        <p>Estamos encantados de responder a tus preguntas, escuchar tus comentarios y ayudarte a planificar tu estancia en Casa&nbsp;Rubia. Puedes escribirnos utilizando el formulario a continuación o comunicarte por teléfono o correo electrónico.</p>
+        <ul style="list-style: none; padding: 0;">
+          <li><strong>Dirección:</strong> Calle&nbsp;20&nbsp;#&nbsp;4‑04, Taganga</li>
+          <li><strong>Teléfono:</strong> +57&nbsp;304&nbsp;671&nbsp;7881</li>
+          <li><strong>Email:</strong> casarubiataganga@gmail.com</li>
+        </ul>
+      </div>
+      <div style="flex: 1 1 300px;">
+        <form id="contact-form" class="contact-form">
+          <label for="contactName">Nombre completo</label>
+          <input type="text" id="contactName" name="name" required>
+          <label for="contactEmail">Correo electrónico</label>
+          <input type="email" id="contactEmail" name="email" required>
+          <label for="contactPhone">Teléfono</label>
+          <input type="tel" id="contactPhone" name="phone">
+          <label for="contactMessage">Mensaje</label>
+          <textarea id="contactMessage" name="message" required></textarea>
+          <button type="submit">Enviar mensaje</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Contacto</h4>
+        <ul>
+          <li>Dirección: Calle&nbsp;20&nbsp;#&nbsp;4‑04, Taganga</li>
+          <li>Teléfono: +57&nbsp;304&nbsp;671&nbsp;7881</li>
+          <li>Email: casarubiataganga@gmail.com</li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Enlaces rápidos</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="rooms.html">Habitaciones</a></li>
+          <li><a href="contact.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Síguenos</h4>
+        <div class="social-icons">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+    <p style="margin-top: 1.5rem; font-size: 0.85rem;">&copy; 2025 Casa&nbsp;Rubia. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
