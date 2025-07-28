@@ -102,3 +102,33 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Servidor Casa Rubia escuchando en el puerto ${PORT}`);
 });
+
+// Obtener reservas existentes
+app.get('/reservas', (req, res) => {
+  db.all('SELECT * FROM reservations', [], (err, rows) => {
+    if (err) {
+      console.error('Error al obtener reservas:', err);
+      return res.status(500).json({ error: 'Error al obtener reservas' });
+    }
+    res.json(rows);
+  });
+});
+
+// Crear nueva reserva
+app.post('/reservas', (req, res) => {
+  const { roomId, checkIn, checkOut } = req.body;
+
+  if (!roomId || !checkIn || !checkOut) {
+    return res.status(400).json({ error: 'Faltan datos' });
+  }
+
+  const stmt = db.prepare('INSERT INTO reservations (roomId, checkIn, checkOut) VALUES (?, ?, ?)');
+  stmt.run([roomId, checkIn, checkOut], function(err) {
+    if (err) {
+      console.error('Error al insertar reserva:', err);
+      return res.status(500).json({ error: 'Error al guardar la reserva' });
+    }
+    res.status(201).json({ id: this.lastID });
+  });
+  stmt.finalize();
+});
