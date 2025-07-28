@@ -112,7 +112,7 @@ function initRoomsPage() {
         checkIn: checkInDate.toISOString(),
         checkOut: checkOutDate.toISOString()
       });
-      const response = await fetch(`https://casa-rubia-hotel-production.up.railway.app/api/reservations?${params.toString()}`);
+      const response = await fetch(`https://casa-rubia-hotel-production.up.railway.app?${params.toString()}`);
       const reservations = await response.json();
       rooms.forEach((room) => {
         const cell = document.getElementById(`avail-${room.id}`);
